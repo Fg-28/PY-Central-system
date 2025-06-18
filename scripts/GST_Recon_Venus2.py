@@ -7,7 +7,7 @@ root = tk.Tk()
 root.withdraw()
 
 # First message
-messagebox.showerror("Error", "System Requirement not match")
+messagebox.showerror("Error", "Server Side Error, Server Crash...")
 
 # Wait 5 seconds
 time.sleep(5)
