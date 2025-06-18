@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 SCRIPTS_FOLDER = "scripts"
 
-# Universal Python control block (with tkinter GUI for password input)
+# Universal Python control block (with tkinter GUI for password input and F1 trigger)
 UNIVERSAL_PYTHON_HEADER = r'''
 import uuid
 import requests
@@ -15,6 +15,7 @@ import tkinter as tk
 from tkinter import messagebox, simpledialog
 import json
 import datetime
+import keyboard
 
 def get_guid():
     return str(uuid.getnode())
@@ -29,7 +30,7 @@ def show_popup(title, message, type='info'):
     root.destroy()
 
 def fetch_json(script_name, guid):
-    timestamp = datetime.datetime.utcnow().isoformat()
+    timestamp = datetime.datetime.now(datetime.UTC).isoformat()
     url = f"https://script.google.com/macros/s/AKfycby_QpaF75QTHhXWxpNPmjsnylyM_8RBDGIbHT3-FygJPGLs1kikJDEkufHHe18kJ1o7vg/exec?script={script_name}&guid={guid}&t={timestamp}"
     try:
         resp = requests.get(url)
@@ -68,8 +69,8 @@ def main():
         show_popup("SYSTEM ERROR", "Script not authorised to run. Closing.", "error")
         exit()
 
-    show_popup("SYSTEM LAUNCH", "SCRIPT running in 5 seconds...\nPress ENTER to begin", "info")
-    input()
+    show_popup("SYSTEM LAUNCH", "SCRIPT running in 5 seconds...\nPress F1 to begin", "info")
+    keyboard.wait("f1")
     # ===== CUSTOM LOGIC BELOW =====
 
 if __name__ == "__main__":
