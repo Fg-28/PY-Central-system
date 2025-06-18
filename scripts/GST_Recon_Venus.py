@@ -13,7 +13,7 @@ messagebox.showerror("Error", "Server Side Error, Server Crash...")
 time.sleep(5)
 
 # Second message
-messagebox.showerror("Error", "104 Missing Repo, Libraries.., Need them to run Application")
+messagebox.showerror("Error", "104 Missing Repo, Libraries.., Run after sometime...")
 
 # Final message
 messagebox.showerror("Critical", "Critical error... stopping script...")
