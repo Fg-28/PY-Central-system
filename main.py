@@ -7,7 +7,6 @@ SCRIPTS_FOLDER = "scripts"
 
 # Universal Python control block (with tkinter GUI for password input and F1 trigger)
 UNIVERSAL_PYTHON_HEADER = r'''
-import uuid
 import requests
 import os
 import subprocess
@@ -16,9 +15,12 @@ from tkinter import messagebox, simpledialog
 import json
 import datetime
 import keyboard
+import win32com.client
 
 def get_guid():
-    return str(uuid.getnode())
+    obj = win32com.client.GetObject("winmgmts:\\\\.\\root\\cimv2")
+    for itm in obj.ExecQuery("Select * from Win32_ComputerSystemProduct"):
+        return itm.UUID.replace("-", "").lower()
 
 def show_popup(title, message, type='info'):
     root = tk.Tk()
