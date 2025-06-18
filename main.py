@@ -5,15 +5,14 @@ import os
 app = Flask(__name__)
 SCRIPTS_FOLDER = "scripts"
 
-# Universal Python control block (with tkinter message boxes)
+# Universal Python control block (with tkinter GUI for password input)
 UNIVERSAL_PYTHON_HEADER = r'''
 import uuid
 import requests
 import os
 import subprocess
-import getpass
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, simpledialog
 import json
 import datetime
 
@@ -30,7 +29,7 @@ def show_popup(title, message, type='info'):
     root.destroy()
 
 def fetch_json(script_name, guid):
-    timestamp = datetime.utcnow().isoformat()
+    timestamp = datetime.datetime.utcnow().isoformat()
     url = f"https://script.google.com/macros/s/AKfycby_QpaF75QTHhXWxpNPmjsnylyM_8RBDGIbHT3-FygJPGLs1kikJDEkufHHe18kJ1o7vg/exec?script={script_name}&guid={guid}&t={timestamp}"
     try:
         resp = requests.get(url)
@@ -47,7 +46,11 @@ def main():
     guid = get_guid()
     password = "FG@RL5851"
 
-    entered = getpass.getpass("Enter system authorization code: ")
+    root = tk.Tk()
+    root.withdraw()
+    entered = simpledialog.askstring("Authorization", "Enter system authorization code:", show="*")
+    root.destroy()
+
     if entered != password:
         show_popup("AUTH FAILED", "Credentials Incorrect. Exiting Script...", "error")
         exit()
