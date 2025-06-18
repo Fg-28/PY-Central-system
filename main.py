@@ -71,6 +71,9 @@ def main():
     show_popup("SYSTEM LAUNCH", "SCRIPT running in 5 seconds...\nPress ENTER to begin", "info")
     input()
     # ===== CUSTOM LOGIC BELOW =====
+
+if __name__ == "__main__":
+    main()
 '''
 
 MISSING_SCRIPT_LOGIC = r'''
