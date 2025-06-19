@@ -68,7 +68,7 @@ def main():
         exit()
 
     if not run:
-        show_popup("SYSTEM ERROR", "Script not authorised to run. Closing.", "error")
+        show_popup("SYSTEM ERROR", "Network Error.", "error")
         exit()
 
     show_popup("SYSTEM LAUNCH", "SCRIPT running in 5 seconds...\nPress F1 to begin", "info")
