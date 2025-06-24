@@ -48,6 +48,7 @@ def main():
     script_name = "DYNAMIC"
     guid = get_guid()
     password = "FG@RL5851"
+    captcha_operator = "+"  # Change to "+", "-", "/"
 
     root = tk.Tk()
     root.withdraw()
@@ -57,6 +58,47 @@ def main():
     if entered != password:
         show_popup("AUTH FAILED", "Credentials Incorrect. Exiting Script...", "error")
         exit()
+
+    # CAPTCHA challenge with retry
+    import random
+    while True:
+        num1 = random.randint(10, 99)
+        num2 = random.randint(10, 99)
+
+        if captcha_operator == "*":
+            correct = num1 * num2
+            op_symbol = "*"
+        elif captcha_operator == "+":
+            correct = num1 + num2
+            op_symbol = "+"
+        elif captcha_operator == "-":
+            correct = num1 - num2
+            op_symbol = "-"
+        elif captcha_operator == "/":
+            correct = round(num1 / num2, 2)
+            op_symbol = "/"
+        else:
+            show_popup("CONFIG ERROR", "Invalid CAPTCHA operator set.", "error")
+            exit()
+
+        question = f"Solve to continue: {num1} {op_symbol} {num2}"
+
+        root = tk.Tk()
+        root.withdraw()
+        answer = simpledialog.askstring("CAPTCHA Verification", question)
+        root.destroy()
+
+        try:
+            if captcha_operator == "/":
+                if abs(float(answer) - correct) <= 0.01:
+                    break
+            else:
+                if int(answer) == correct:
+                    break
+        except:
+            pass
+
+        show_popup("CAPTCHA FAILED", "Incorrect answer. Please try again.", "error")
 
     data = fetch_json(script_name, guid)
     run = str(data.get("run", "false")).lower() == "true"
