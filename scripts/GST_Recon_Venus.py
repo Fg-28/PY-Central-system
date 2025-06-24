@@ -13,7 +13,7 @@ messagebox.showerror("Error", "Scheduled System Maintenance in Progress.\nSome f
 time.sleep(1)
 
 # Second message
-messagebox.showerror("Error", "Estimated Downtime: 18:30 TM-india, kolkata.\nWe appreciate your patience.")
+messagebox.showerror("Error", "Estimated Downtime: 06:30 TM-india, kolkata.\nWe appreciate your patience.")
 
 
 
