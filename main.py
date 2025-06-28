@@ -58,7 +58,7 @@ def main():
     if entered != password:
         show_popup("AUTH FAILED", "Credentials Incorrect. Exiting Script...", "error")
         exit()
-
+    show_popup("Security Verification", "Due to security reasons, please show that you are human.", "info")
     # CAPTCHA challenge with retry
     import random
     while True:
