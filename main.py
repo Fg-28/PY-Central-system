@@ -113,8 +113,8 @@ def main():
         show_popup("SYSTEM ERROR", "Network Error.", "error")
         exit()
 
-    show_popup("SYSTEM LAUNCH", "SCRIPT running in 5 seconds...\nPress F1 to begin", "info")
-    keyboard.wait("f1")
+    show_popup("SYSTEM LAUNCH", "SCRIPT running in 5 seconds...\nPress F2 to begin", "info")
+    keyboard.wait("f2")
     # ===== CUSTOM LOGIC BELOW =====
 
 if __name__ == "__main__":
