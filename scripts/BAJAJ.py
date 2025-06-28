@@ -52,7 +52,7 @@ def main_loop():
         pyautogui.hotkey('alt', 'tab')
         time.sleep(0.8)
         pyautogui.write(text1)
-        time.sleep(0.5)
+        time.sleep(0.8)
         pyautogui.press('enter')
         time.sleep(0.45)
 
@@ -79,9 +79,9 @@ def main_loop():
         pyautogui.press('down')
         time.sleep(0.45)
         pyautogui.press('tab')
-        time.sleep(0.45)
+        time.sleep(0.8)
         pyautogui.write(text3)
-        time.sleep(0.55)
+        time.sleep(0.7)
         pyautogui.press('enter')
         time.sleep(0.45)
 
@@ -153,7 +153,6 @@ def main_loop():
         time.sleep(0.5)
 
 if __name__ == "__main__":
-    time.sleep(5)        # Wait 5 seconds after F1
-    pyautogui.click(1168, 239)  # Click once
-    time.sleep(4)        # Wait another 4 seconds
+  # Click once
+    time.sleep(3)        # Wait another 4 seconds
     main_loop()
