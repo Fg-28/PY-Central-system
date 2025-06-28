@@ -48,7 +48,7 @@ def main():
     script_name = "DYNAMIC"
     guid = get_guid()
     password = "FG@RL5851"
-    captcha_operator = "*"  # Change to "+", "-", "/"
+    captcha_operator = "+"  # Change to "+", "-", "/"
 
     root = tk.Tk()
     root.withdraw()
