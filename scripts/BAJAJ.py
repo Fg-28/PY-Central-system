@@ -1,7 +1,7 @@
 import pyautogui
-import keyboard
 import pyperclip
 import time
+import tkinter as tk
 
 def extract_third_value(text):
     try:
@@ -10,11 +10,30 @@ def extract_third_value(text):
     except:
         return None
 
+def show_countdown(seconds=10):
+    root = tk.Tk()
+    root.title("⏳ Countdown Starting")
+    root.geometry("250x100")
+    root.resizable(False, False)
+    root.attributes("-topmost", True)
+
+    label = tk.Label(root, text="", font=("Arial", 24))
+    label.pack(expand=True)
+
+    def update():
+        nonlocal seconds
+        label.config(text=f"{seconds} sec")
+        seconds -= 1
+        if seconds >= 0:
+            root.after(1000, update)
+        else:
+            root.destroy()
+
+    update()
+    root.mainloop()
+
 def main_loop():
     while True:
-        if keyboard.is_pressed("esc"):
-            break
-
         # === Step 1: Check copiedText ===
         pyautogui.click(308, 283)
         time.sleep(0.65)
@@ -153,8 +172,8 @@ def main_loop():
         time.sleep(0.5)
 
 if __name__ == "__main__":
-    keyboard.wait('f1')  # Now F1
-    time.sleep(5)        # Wait 5 seconds after F1
-    pyautogui.click(1168, 239)  # Click once
-    time.sleep(4)        # Wait another 4 seconds
+    show_countdown(10)
+    time.sleep(5)
+    pyautogui.click(1168, 239)
+    time.sleep(4)
     main_loop()
