@@ -173,7 +173,5 @@ def main_loop():
 
 if __name__ == "__main__":
     show_countdown(10)
-    time.sleep(5)
-    pyautogui.click(1168, 239)
-    time.sleep(4)
+    time.sleep(3)
     main_loop()
