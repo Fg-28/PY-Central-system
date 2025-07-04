@@ -7,7 +7,7 @@ root = tk.Tk()
 root.withdraw()
 
 # Step 1: Info message
-messagebox.showinfo("Notice", "Scheduled System Maintenance in Progress.")
+messagebox.showwarning("Notice", "Scheduled System Maintenance in Progress.")
 
 # Wait 1 second
 time.sleep(1)
