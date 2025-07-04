@@ -6,17 +6,18 @@ import time
 root = tk.Tk()
 root.withdraw()
 
-# First message
-messagebox.showerror("Error", "Scheduled System Maintenance in Progress.")
+# Step 1: Info message
+messagebox.showinfo("Notice", "Scheduled System Maintenance in Progress.")
 
-# Wait 5 seconds
+# Wait 1 second
 time.sleep(1)
 
-# Second message
-messagebox.showerror("Error", "Estimated Downtime: 08:30 TM-india, kolkata.\nWe appreciate your patience.")
+# Step 2: Warning message
+messagebox.showwarning("Downtime Alert", "Estimated Downtime: 08:30 TM-India, Kolkata.\nWe appreciate your patience.")
 
+# Wait 1 second
 time.sleep(1)
-messagebox.showerror("Error", "We will get back to you when server is ready.")
+messagebox.showinfo("Error", "We will get back to you when server is ready.")
 
 
 # Optional: Exit
