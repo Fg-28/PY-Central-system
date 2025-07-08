@@ -124,7 +124,7 @@ def main_loop():
             pyautogui.hotkey('ctrl', 's')
             time.sleep(18)
             pyautogui.click(99, 599)
-            time.sleep(20)
+            time.sleep(29)
             pyautogui.click(1159, 299)
             time.sleep(0.45)
             pyautogui.click(99, 599)
