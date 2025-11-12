@@ -23,7 +23,7 @@ def main_loop():
         copied_text = pyperclip.paste().strip().lower()
 
         if copied_text not in ['fin-0001', 'fin-0005']:
-            time.sleep(7)
+            time.sleep(12)
             continue
 
         # === Receipt Block ===
@@ -117,16 +117,16 @@ def main_loop():
         pyautogui.click(1419, 753)
         time.sleep(0.5)
         pyautogui.hotkey('ctrl', 'c')
-        time.sleep(0.5)
+        time.sleep(1)
         value6 = float(pyperclip.paste())
 
         if value5 == value6:
             pyautogui.hotkey('ctrl', 's')
-            time.sleep(18)
+            time.sleep(25)
             pyautogui.click(99, 599)
-            time.sleep(29)
+            time.sleep(30)
             pyautogui.click(1159, 299)
-            time.sleep(0.45)
+            time.sleep(1)
             pyautogui.click(99, 599)
             time.sleep(4)
             pyautogui.click(99, 599)
